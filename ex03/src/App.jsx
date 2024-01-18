@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { FiCalendar, FiPlus } from 'react-icons/fi'
+import { Note } from './components/Note'
+import { useState } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [notes, setNotes] = useState([])
+    const [newNote, setNewNote] = useState("")
+
+    function handleAddNote() {
+        if(!newNote){
+            return
+        }
+        setNotes(prevState => [...prevState, newNote])
+        setNewNote("")
+    }
+
+    function handleRemoveNote(e){
+        setNotes(notes.filter(note => note !== e))
+    }
+
+
+
+    return (
+        <>
+            <header>
+                <h1>NOTES</h1>
+            </header>
+            <main>
+                <div className="container">
+                    <section className='header-note'>
+                        <h2>ENSIRA UMA TAREFA</h2>
+                        <div className="wrapper-input">
+                            <FiCalendar />
+                            <input
+                                type="text"
+                                placeholder='Titulo da Tarefa'
+                                onChange={e => setNewNote(e.target.value)}
+                            />
+                            <button onClick={handleAddNote}>
+                                <FiPlus />
+                            </button>
+                        </div>
+                    </section>
+                    <h3>TAREFAS</h3>
+                    <section className='main-note'>
+                        {
+                            notes &&
+                            notes.map((note, index) => (
+                                <Note
+                                    title={note}
+                                    key={String(index)}
+                                    del={() => handleRemoveNote(note)}
+                                    index={String(index)}
+                                />
+                            ))
+                        }
+                    </section>
+                </div>
+            </main>
+        </>
+    )
 }
 
-export default App

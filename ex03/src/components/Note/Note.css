@@ -1,0 +1,40 @@
+.card-note{
+    background-color: white;
+    padding: 2rem;
+    display: grid;
+    grid-template-areas: "title done delete";
+    grid-template-columns: 3fr 50px 50px;
+    place-content: center;
+    font-size: 2rem;
+    gap: 1%;
+    border-radius: 8px;
+    color: rgb(40, 40, 40);
+    max-height: 40px;
+    margin: 20px 10px 20px 0;
+}
+
+.title{
+    grid-area: title;
+    overflow: hidden;
+}
+
+
+button{
+    cursor: pointer;
+    border: none;
+}
+
+.card-note > button{
+    grid-area: delete;
+    background-color: red;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    border-radius: 8px;
+}
+
+button:hover{
+    filter: brightness(0.7);
+}
