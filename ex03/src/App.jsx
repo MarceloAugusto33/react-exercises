@@ -9,18 +9,16 @@ export function App() {
     const [newNote, setNewNote] = useState("")
 
     function handleAddNote() {
-        if(!newNote){
+        if (!newNote) {
             return
         }
         setNotes(prevState => [...prevState, newNote])
         setNewNote("")
     }
 
-    function handleRemoveNote(e){
+    function handleRemoveNote(e) {
         setNotes(notes.filter(note => note !== e))
     }
-
-
 
     return (
         <>
