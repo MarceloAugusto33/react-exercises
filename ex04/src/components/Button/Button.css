@@ -1,0 +1,15 @@
+button{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.314);
+    cursor: pointer;
+}
+.verde{
+    background-color: rgb(0, 204, 0);
+}
+
+.vermelho{
+    background-color: red;
+}
