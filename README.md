@@ -14,6 +14,7 @@ Faça um componente com um botão que, ao ser clicado, alterna entre dois estilo
 
 5 - Busca de Usuário:
 Crie um componente que permita aos usuários buscar por nomes de usuários. Use o useState para armazenar a consulta e o useEffect para simular uma chamada de API.
+https://api.github.com/users/${username}
 
 6 - Validação de Formulário:
 Faça um formulário de login simples com campos de nome de usuário e senha. Utilize o useState para armazenar os valores e o useEffect para validar a senha (por exemplo, deve conter pelo menos 8 caracteres).
