@@ -10,17 +10,10 @@ export function App() {
 
 
   useEffect(() =>{
-    if(password.length > 8){
-      setPasswordValid(true)
-    } else{
-      setPasswordValid(false)
-    }
+    password.length > 8 ? setPasswordValid(true) : setPasswordValid(false)
 
-    if(user.length > 4){
-      setUserValid(true)
-    } else{
-      setUserValid(false)
-    }
+    user.length > 4 ? setUserValid(true) : setUserValid(false)
+      
   }, [user, password])
 
   function postForm(e) {
